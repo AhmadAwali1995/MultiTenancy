@@ -1,0 +1,22 @@
+@MultiTenancy_HostAddress = https://localhost:7230
+
+
+GET {{MultiTenancy_HostAddress}}/api/products
+tenant: Tenant9
+###
+
+POST {{MultiTenancy_HostAddress}}/api/products
+tenant:Tenant4
+Content-Type: application/json
+
+{
+  "Name":"Product9",
+  "Description":"Product4 description",
+  "Rate":2
+}
+
+###
+
+GET {{MultiTenancy_HostAddress}}/api/products/{id:int}?id=0
+
+###
